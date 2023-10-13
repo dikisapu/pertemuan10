@@ -1,0 +1,22 @@
+/* .container {
+  width: 800px;
+  height: 1200px;
+} */
+.heading {
+  border: 2px solid black;
+}
+.base {
+  margin: 20px 0 0 0;
+  background-color: #f1efef;
+}
+body {
+  background-color: #f1efef;
+}
+/* .container {
+  border-radius: 30px;
+} */
+.tambah {
+  text-decoration: none;
+  color: white;
+  width: 40px;
+}
