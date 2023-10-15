@@ -1,9 +1,11 @@
 <?php 
 require 'function.php';
 
-$mahasiswa=query("SELECT * FROM mhs");
+$mahasiswa=query("SELECT * FROM mhs ORDER BY id ");
 // var_dump($mahasiswa);
-
+if ( isset($_POST["cari"])) {
+    $mahasiswa= cari($_POST["keyword"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +18,21 @@ $mahasiswa=query("SELECT * FROM mhs");
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-secondary-subtle">
-    <div class="bg-info bg-gradient">
+    <div class="bg-info bg-gradient ">
         <h1 class="text-center">Table mahasiswa</h1>
-        <a href="tambah.php" ><p class="text-center bg-warning tambah" >Tambah data</p></a>
+        <div class="caridata container align-middle rounded-pill">
+            <a href="tambah.php" ><p class="text-center bg-warning" >Tambah data</p></a>
+        </div>
     </div>
     <div class="rounded-2 container ">
+    <form action="" method="post">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="cari data mahasiswa" aria-label="keyword" aria-describedby="button-addon2" name="keyword" autofocus autocomplete="off">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="cari">Cari</button>
+    </div>
+
+    </form>
+
     <table class=" table table-striped base text-center align-middle " >
     <tr>
         <th>id</th>
@@ -37,7 +49,7 @@ $mahasiswa=query("SELECT * FROM mhs");
         <?php foreach ($mahasiswa as $row) :?> 
             <td><?= $i ?></td>
         <td>
-        <a href="">ubah</a> |
+        <a href="ubah.php?id=<?= $row['id']?>">ubah</a> |
         <a href="hapus.php?id=<?= $row['id']?>"onclick="return confirm('yakin bro mau dihapus ?')">hapus</a>
         </td>
         <td>

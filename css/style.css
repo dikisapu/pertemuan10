@@ -15,8 +15,7 @@ body {
 /* .container {
   border-radius: 30px;
 } */
-.tambah {
-  text-decoration: none;
-  color: white;
-  width: 40px;
+.tes {
+  width: 80%;
+  margin: 20px auto;
 }
