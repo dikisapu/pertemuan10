@@ -10,6 +10,15 @@ require 'function.php';
 // cek tombol sudah di klik atau belum
 // superglobal varible post metodenya asosiatif 
 if ( isset($_POST["submit"])) {
+
+
+    // var_dump($_FILES) ;die;
+    // var_dump($_POST) ;
+    // var_dump($_FILES) ;
+    
+    // die;
+
+
     if( tambah($_POST) > 0){
         echo "
         <script>
@@ -43,7 +52,7 @@ if ( isset($_POST["submit"])) {
     <h1>tambah mahasiswa</h1>
     <a href="index.php">balik lagi ke tabel utama</a>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
     <ul class="form">
         <li>
             <label for="npm">NPM</label>
@@ -63,7 +72,7 @@ if ( isset($_POST["submit"])) {
         </li>
         <li>
             <label for="gambar">gambar :</label>
-            <input type="text" name="gambar" id="gambar">
+            <input type="file" name="gambar" id="gambar">
         </li>
         <li>
             <button type="submit" name="submit">Tambah data</button>

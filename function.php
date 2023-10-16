@@ -19,7 +19,30 @@ function tambah($data){
     $nama= htmlspecialchars($data["nama"]);
     $email=htmlspecialchars($data["email"]);
     $jurusan=htmlspecialchars($data["jurusan"]);
-    $gambar=htmlspecialchars($data["gambar"]);
+    
+    $gambar=upload();
+    if(!$gambar ){
+        return false;
+    }
+
+    function upload() {
+        $namaFiles= $_FILES['gambar']['name'];
+        $ukuranFile= $_FILES['gambar']['size'];
+        $error= $_FILES['gambar']['eror'];
+        $tmpName=$_FILES['gambar']['tmp_name'];
+        if ($error ===4) {
+            echo"
+            <script>
+            alert('pilih gambar terlebih dahulu')
+            </script>
+            ";
+            return false;
+        }
+
+        $ekstensiGambarValid=['jpg','jpeg','png'];
+
+    }
+
     $query="INSERT INTO mhs VALUES
         ('','$nama','$npm','$jurusan','$email','$gambar')
          ";
